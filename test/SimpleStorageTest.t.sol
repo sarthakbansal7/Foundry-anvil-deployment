@@ -23,5 +23,14 @@ contract SimpleStorageTest is Test {
         assert(expectedFavoiteNumber == simpleStorage.retrieve());
     }
 
-    
+    function testCreatePerson() public {
+        // Arrange
+        string memory name = "Jon";
+        uint256 expectedNumber = 25;
+        // Act
+        simpleStorage.addPerson(name, expectedNumber);
+        // Assert
+        uint256 retreievedNumber = simpleStorage.nameToFavoriteNumber(name);
+        assert(retreievedNumber == expectedNumber);
+    }
 }
