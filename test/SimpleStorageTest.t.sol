@@ -14,5 +14,14 @@ contract SimpleStorageTest is Test {
         simpleStorage = deployer.run();
     }
 
+    function testStoreNumber() public {
+        // Arrange
+        uint256 expectedFavoiteNumber = 777;
+        // Act
+        simpleStorage.store(expectedFavoiteNumber);
+        // Assert
+        assert(expectedFavoiteNumber == simpleStorage.retrieve());
+    }
+
     
 }
